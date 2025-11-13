@@ -1,0 +1,370 @@
+/* tab1_analysis.css */
+/* Contains all styles for the Tab 1: Classification Analysis */
+
+/* Side-by-side layout for Tab 1 */
+.tab1-container {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start; 
+}
+.tab1-left {
+    flex: 0 0 40%;
+    position: sticky;
+    top: 24px;
+    transition: all 0.3s ease-in-out;
+}
+.tab1-right {
+    flex: 1;
+    min-height: 400px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- File Upload Area --- */
+.file-upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 30px 20px; /* Made compact */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-bottom: 16px;
+    background-color: #fafafa;
+}
+.file-upload-area:hover {
+    background-color: #f0f0f0;
+    border-color: #999;
+}
+.file-upload-area.dragover {
+    background-color: #e8f4fd;
+    border-color: #0056b3;
+}
+.file-upload-area input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.file-upload-icon {
+    font-size: 36px; /* Made compact */
+    color: #999;
+    margin-bottom: 8px; /* Made compact */
+}
+.file-upload-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+.file-upload-hint {
+    font-size: 13px;
+    color: #999;
+}
+.uploaded-file-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0056b3;
+    font-weight: 600;
+}
+
+/* Compact OR divider */
+.or-divider {
+    text-align: center;
+    margin: 16px 0;
+    color: #888;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Make textarea smaller */
+#tab1 textarea {
+    height: 120px;
+}
+
+/* --- Collapsible Input Panel Styles --- */
+#input-options-toggle {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+    position: relative;
+    /* REMOVED padding-right: 20px; */
+}
+/* REMOVED the ::after pseudo-element rule */
+
+.tab1-left.collapsed {
+    flex-basis: auto; /* Shrink to content size */
+    flex-grow: 0;
+}
+.tab1-left.collapsed #input-options-content {
+    display: none;
+}
+/* REMOVED the collapsed ::after pseudo-element rule */
+/* --- End Collapsible Input Panel --- */
+
+
+/* --- Analysis Results (Right Side) --- */
+.tab1-right h2 {
+    margin-top: 0;
+}
+
+.results-placeholder {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 16px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+/* --- Analysis Loading Screen Styles --- */
+.analysis-loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.loading-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.loading-spinner-large {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(26, 35, 126, 0.1);
+    border-radius: 50%;
+    border-top-color: #1a237e;
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto 20px;
+}
+
+.loading-content h3 {
+    color: #1a237e;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.loading-message {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto 20px;
+}
+
+.loading-progress-bar {
+    width: 300px;
+    height: 6px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loading-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1a237e 0%, #3f51b5 100%);
+    width: 30%;
+    border-radius: 3px;
+    animation: progress 2s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    50% { width: 60%; }
+    100% { width: 30%; }
+}
+
+/* --- Classified Elements Compact Layout --- */
+.classified-element-item {
+    margin-left: 20px;
+    margin-bottom: 12px;
+    margin-top: 10px;
+    border-left: 3px solid #f0ad4e;
+    padding-left: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.classified-element-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.classified-element-header .modal-link {
+    margin-left: auto;
+    font-size: 12px;
+}
+
+.classified-element-text {
+    position: relative;
+    padding-right: 25px;
+    line-height: 1.5;
+    max-height: 3em;
+    overflow: hidden;
+}
+
+.element-text-content {
+    display: inline;
+}
+
+.expand-element-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    color: #0056b3;
+    background: white;
+    padding: 0 5px;
+    user-select: none;
+}
+
+.expand-element-icon:hover {
+    color: #00418a;
+}
+
+.expand-all-link {
+    position: absolute;
+    right: 0;
+    font-size: 13px;
+    font-weight: normal;
+    color: #0056b3;
+    cursor: pointer;
+    user-select: none;
+}
+
+.expand-all-link:hover {
+    color: #00418a;
+    text-decoration: underline;
+}
+
+/* --- Classified Elements list - UPDATED --- */
+.classified-element-item {
+    margin-left: 20px;
+    margin-bottom: 16px;
+    margin-top: 10px;
+    border-left: 3px solid #f0ad4e;
+    padding-left: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.classified-element-item.cui {
+    border-left-color: #5a2d82;
+}
+
+.classified-element-item.is-classified {
+    border-left-color: #dc2626;
+}
+
+.classified-element-item.potentially-secret {
+    border-left-color: #ff8c00;
+}
+
+.classified-element-item.top-secret {
+    border-left-color: #f59e0b;
+}
+
+.classified-element-item.top-secret-sap {
+    border-left-color: #333;
+}
+
+.classified-element-item.potential {
+    border-left-color: #f0ad4e;
+}
+
+.classified-element-item strong {
+    color: #333;
+}
+
+/* --- Sentence Analysis Colors - UPDATED --- */
+.sentence-analysis {
+    padding: 12px;
+    margin-bottom: 12px;
+    border-left: 4px solid #ddd;
+    background-color: #fafafa;
+}
+
+.sentence-analysis.not-classified {
+    background-color: #f0fdf4;
+    border-left-color: #059669;
+}
+
+.sentence-analysis.cui {
+    background-color: #f3f0ff;
+    border-left-color: #5a2d82;
+}
+
+.sentence-analysis.classified {
+    background-color: #fef2f2;
+    border-left-color: #dc2626;
+}
+
+.sentence-analysis.potentially-secret {
+    background-color: #fff8f0;
+    border-left-color: #ff8c00;
+}
+
+.sentence-analysis.top-secret {
+    background-color: #fffbeb;
+    border-left-color: #f59e0b;
+}
+
+.sentence-analysis.potentially-classified {
+    background-color: #fff8e1;
+    border-left-color: #f59e0b;
+}
+
+.sentence-text {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+.sentence-result {
+    font-size: 14px;
+    color: #555;
+}
+.sentence-number {
+    display: inline-block;
+    background-color: #e5e7eb;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* --- ADDED: SCG Recommendation Section --- */
+.recommendation-section {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #f0f8ff;
+    border: 1px solid #b6d4ff;
+    border-radius: 6px;
+}
+.recommendation-section h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+.recommendation-section p {
+    margin-bottom: 12px;
+}
+.recommendation-section ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+.recommendation-section li {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}

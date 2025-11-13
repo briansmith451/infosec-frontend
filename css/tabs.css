@@ -1,0 +1,35 @@
+/* tabs.css */
+/* Contains all styles for the tab navigation and content panels */
+
+/* --- Tab Navigation --- */
+.tab-nav {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+} 
+.tab-button {
+    padding: 14px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    border-bottom: 3px solid transparent;
+}
+.tab-button:hover {
+    background-color: #f0f0f0;
+}
+.tab-button.active {
+    color: #1a237e;
+    border-bottom: 3px solid #1a237e;
+}
+
+/* --- Tab Content --- */
+.tab-content {
+    display: none; /* Hide all tabs by default */
+    padding: 24px;
+}
+.tab-content.active {
+    display: block; /* Show only the active tab */
+}

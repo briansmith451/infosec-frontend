@@ -1,0 +1,164 @@
+/* tab3_library.css */
+/* Contains all styles for the Tab 3: Reference Library */
+
+.filter-grid {
+    display: grid;
+    /* MODIFIED: Changed to a 2fr 1fr layout */
+    grid-template-columns: 2fr 1fr;
+    gap: 16px; 
+    margin-bottom: 16px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.filter-group select, .filter-group input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Checkbox group styling */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    cursor: pointer;
+}
+.checkbox-group input {
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+/* REMOVED: This class is no longer needed */
+/*
+.filter-group.full-width {
+    grid-column: 1 / -1;
+}
+*/
+
+#library-search-button {
+    width: 100%; /* Full width button */
+}
+
+/* --- Library Search Results --- */
+.library-item {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    text-align: left;
+}
+.library-header {
+    background-color: #f9f9f9;
+    padding: 10px 16px; 
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.library-topic {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1a237e;
+    margin: 0;
+}
+.library-classification {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #333;
+    background-color: #eee;
+    flex-shrink: 0; 
+    margin-left: 10px;
+}
+
+/* Library classification labels */
+.library-classification.unclassified { 
+    background-color: #dff0d8; 
+    color: #3c763d; 
+}
+.library-classification.cui { 
+    background-color: #e8dffb; 
+    color: #5a2d82; 
+}
+.library-classification.secret { 
+    background-color: #f2dede; 
+    color: #a94442; 
+}
+.library-classification.top-secret { 
+    background-color: #fef4e5; 
+    color: #cb7b2d; 
+}
+.library-classification.sap { 
+    background-color: #e0e0e0; 
+    color: #000; 
+}
+
+.library-content {
+    padding: 12px 16px;
+}
+.library-rule {
+    margin: 0 0 12px 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.library-metadata {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: #666;
+    flex-wrap: wrap;
+}
+.library-metadata span {
+    white-space: nowrap;
+}
+
+/* --- Rule Source Badges (for Tab 3) --- */
+.rule-source-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+    text-transform: uppercase;
+}
+
+.rule-source-badge.personal {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.rule-source-badge.official {
+    background: #1a237e;
+    color: white;
+}
+
+/* --- Grid for Tab 3 Checkboxes --- */
+.filter-grid-checkboxes {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Give more space to classifications */
+    gap: 16px;
+}

@@ -1,0 +1,411 @@
+/* style.css */
+/* This file now contains only GLOBAL styles. */
+/* All component-specific styles have been moved. */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 24px;
+    font-size: 16px;
+    line-height: 1.5; 
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+/* --- NEW HEADER --- */
+header {
+    background-color: #1a237e; /* Darker, more professional blue */
+    color: #ffffff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+header .logo-subtitle {
+    font-size: 14px;
+    color: #c1caff;
+    margin: 0;
+}
+
+/* --- MODIFIED: Header Icons --- */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative; /* Anchor for the popover */
+}
+/* --- NEW: Quality Selector (Gemini-style) --- */
+.quality-selector {
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    color: #c1caff;
+    padding: 6px 12px;
+    border-radius: 14px;
+    border: 1px solid #c1caff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease;
+}
+.quality-selector:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.dropdown-arrow {
+    font-size: 10px;
+    transform: scaleY(0.8); /* Makes arrow look nicer */
+}
+/* --- End Quality Selector --- */
+
+.icon-button {
+    background: none;
+    border: none;
+    color: #c1caff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+    width: auto; /* Override button defaults */
+}
+.icon-button:hover {
+    background: none;
+    color: #ffffff;
+}
+/* --- End Header --- */
+
+main {
+    padding: 0; /* Main padding is now on .tab-content */
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box; 
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.search-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+button {
+    background-color: #0056b3; 
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+    display: flex; /* Flex for loading spinner */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button:hover {
+    background-color: #00418a;
+}
+
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* --- NEW: LOADING SPINNER --- */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    display: none; /* Hidden by default */
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- Results Section (Shared) --- */
+.results-container {
+    margin-top: 24px;
+    border-top: 1px solid #eee;
+    padding-top: 24px;
+    display: none; /* Hidden by default */
+}
+
+.results-container h2, .results-container h3 {
+    margin-top: 0;
+    font-size: 20px;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 8px;
+    display: flex; /* For copy button */
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- NEW: COPY BUTTON --- */
+.copy-button {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0056b3;
+    background: #eef4ff;
+    border: 1px solid #b6d4ff;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    width: auto; /* Override full-width button style */
+}
+.copy-button:hover {
+    background: #dbe9ff;
+}
+
+/* --- UPDATED CLASSIFICATION COLOR SCHEME --- */
+.determination-box {
+    padding: 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.determination-box.unclassified {
+    background-color: #dff0d8;
+    border: 1px solid #3c763d;
+    color: #3c763d;
+}
+
+.determination-box.cui {
+    background-color: #e8dffb;
+    border: 1px solid #5a2d82;
+    color: #5a2d82;
+}
+
+.determination-box.classified {
+    background-color: #fff0f0;
+    border: 1px solid #d9534f;
+    color: #d9534f;
+}
+
+.determination-box.potentially-secret {
+    background-color: #fff5e6;
+    border: 1px solid #ff8c00;
+    color: #cc6600;
+}
+
+.determination-box.top-secret {
+    background-color: #fff9e6;
+    border: 1px solid #f0ad4e;
+    color: #c2893d;
+}
+
+.determination-box.top-secret-sap {
+    background-color: #f5f5f5;
+    border: 1px solid #333;
+    color: #333;
+}
+
+.determination-box.potential {
+    background-color: #fff9e6;
+    border: 1px solid #f0ad4e;
+    color: #c2893d;
+}
+
+.rationale-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 16px;
+    white-space: pre-wrap; 
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.error-message {
+    color: #d9534f;
+    font-weight: 600;
+    display: none; /* Hidden by default */
+}
+
+/* --- Style for "New Analysis" button --- */
+.secondary-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding: 8px 14px;
+}
+.secondary-button:hover {
+    background-color: #e5e5e0;
+}
+
+/* --- Button Group for Tab 2 --- */
+.button-group-tab2 {
+    display: grid;
+    /* MODIFIED: Changed to 3 columns */
+    grid-template-columns: 2fr 1fr 1.2fr;
+    gap: 12px;
+}
+
+/* Override full-width for buttons in this group */
+.button-group-tab2 button {
+    width: 100%;
+    margin: 0; /* Remove any default margins */
+}
+
+/* --- Style for Generation Tab --- */
+#generation-input {
+    height: 250px;
+}
+
+/* ADDED: Button group for Tab 4 */
+.button-group-tab4 {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Make 'Generate' button wider */
+    gap: 12px;
+}
+
+/* Override full-width for buttons in this group */
+.button-group-tab4 button {
+    width: 100%;
+    margin: 0;
+}
+
+/* --- Feedback Button Styles --- */
+.feedback-buttons {
+    margin-top: -8px; /* Pulls it up closer to the determination box */
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.feedback-button {
+    width: auto; /* Override default button width */
+    padding: 4px 10px;
+    font-size: 16px;
+    background: #f0f0f0;
+    color: #555;
+    border: 1px solid #ccc;
+    margin-left: 8px;
+}
+
+.feedback-button:hover {
+    background: #e5e5e0;
+}
+
+.feedback-button:disabled {
+    background: #e0e0e0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.feedback-confirmation {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3c763d;
+    margin-left: 12px;
+}
+
+/* --- ADDED: Global Toggle Switch Styles --- */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-bottom: 8px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 24px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%; 
+}
+
+input:checked + .toggle-slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+}
+
+/* --- ADDED: Global Rule Source Badges --- */
+.rule-source-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+    text-transform: uppercase;
+}
+
+.rule-source-badge.personal {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.rule-source-badge.official {
+    background: #1a237e;
+    color: white;
+}

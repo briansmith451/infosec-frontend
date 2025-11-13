@@ -1,0 +1,207 @@
+/* dark_mode.css */
+/* Contains all styles for the Dark Mode theme */
+
+/* Add this class to the <body> tag */ 
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+body.dark-mode .tab-nav {
+    background-color: #252526;
+    border-bottom: 1px solid #333;
+}
+body.dark-mode .tab-button {
+    color: #ccc;
+}
+body.dark-mode .tab-button:hover {
+    background-color: #2d2d2d;
+}
+body.dark-mode .tab-button.active {
+    color: #92b1ff;
+    border-bottom: 3px solid #92b1ff;
+}
+body.dark-mode .results-container {
+    border-top: 1px solid #333;
+}
+body.dark-mode .results-container h2, 
+body.dark-mode .results-container h3 {
+    color: #e0e0e0;
+    border-bottom: 2px solid #92b1ff;
+}
+body.dark-mode .filter-group label {
+    color: #e0e0e0;
+}
+body.dark-mode .checkbox-group,
+body.dark-mode .filter-group select, 
+body.dark-mode .filter-group input,
+body.dark-mode textarea {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+}
+body.dark-mode .checkbox-group label {
+    color: #ccc;
+}
+body.dark-mode .or-divider {
+    color: #888;
+}
+body.dark-mode .file-upload-area {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+body.dark-mode .file-upload-area:hover {
+    background-color: #333;
+    border-color: #555;
+}
+body.dark-mode .file-upload-icon {
+    color: #666;
+}
+body.dark-mode .file-upload-text {
+    color: #e0e0e0;
+}
+body.dark-mode .file-upload-hint {
+    color: #888;
+}
+body.dark-mode .uploaded-file-name {
+    color: #92b1ff;
+}
+body.dark-mode .results-placeholder {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #888;
+}
+body.dark-mode .results-placeholder div {
+    color: #888;
+}
+body.dark-mode .library-item {
+    border-color: #444;
+}
+body.dark-mode .library-header {
+    background-color: #2a2a2a;
+    border-bottom-color: #444;
+}
+body.dark-mode .library-topic {
+    color: #92b1ff;
+}
+body.dark-mode .library-metadata {
+    color: #888;
+}
+body.dark-mode .modal-content,
+body.dark-mode .modal-body {
+    background: #252526;
+    color: #e0e0e0;
+}
+body.dark-mode .modal-header {
+    background-color: #2d2d2d;
+    border-bottom-color: #444;
+}
+body.dark-mode .modal-header h3 {
+    color: #92b1ff;
+}
+body.dark-mode .modal-close-button {
+    color: #888;
+}
+body.dark-mode .modal-close-button:hover {
+    color: #e0e0e0;
+}
+body.dark-mode .modal-highlight-box {
+    background: #1e1e1e;
+    border-left-color: #92b1ff;
+}
+body.dark-mode .modal-analysis-box {
+    background: #2a2a2a;
+    border-color: #444;
+}
+body.dark-mode .modal-rules-box {
+    background: #313338;
+    border-color: #4b5f92;
+}
+body.dark-mode .modal-rule-item {
+    border-bottom-color: #444;
+}
+body.dark-mode .modal-rule-header {
+    color: #92b1ff;
+}
+body.dark-mode .modal-label,
+body.dark-mode .modal-body strong {
+    color: #aaa;
+}
+body.dark-mode .modal-text-box {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+body.dark-mode .settings-group {
+    border-bottom-color: #444;
+}
+body.dark-mode .settings-group label {
+    color: #e0e0e0;
+}
+body.dark-mode .settings-description {
+    color: #aaa;
+}
+body.dark-mode .contact-info {
+    background: #2d2d2d;
+    border-left-color: #92b1ff;
+}
+body.dark-mode .contact-info h4 {
+    color: #e0e0e0;
+}
+body.dark-mode .theme-toggle-container {
+    color: #aaa;
+}
+body.dark-mode .quality-popover {
+    background: #2d2d2d;
+    color: #e0e0e0;
+}
+body.dark-mode .quality-popover h3 {
+    color: #ccc;
+}
+body.dark-mode .quality-option:hover {
+    background-color: #333;
+}
+body.dark-mode .quality-option strong {
+    color: #e0e0e0;
+}
+body.dark-mode .quality-option span {
+    color: #888;
+}
+body.dark-mode .quality-option .checkmark {
+    color: #92b1ff;
+}
+body.dark-mode .sentence-analysis {
+    background-color: #2a2a2a;
+}
+body.dark-mode .sentence-number {
+    background-color: #444;
+    color: #e0e0e0;
+}
+body.dark-mode .sentence-result {
+    color: #aaa;
+}
+body.dark-mode .secondary-button {
+    background-color: #444;
+    color: #e0e0e0;
+    border-color: #555;
+}
+body.dark-mode .secondary-button:hover {
+    background-color: #555;
+}
+body.dark-mode .feedback-button {
+    background-color: #444;
+    color: #e0e0e0;
+    border-color: #555;
+}
+body.dark-mode .feedback-button:hover {
+    background-color: #555;
+}
+body.dark-mode .feedback-button:disabled {
+    background-color: #333;
+    opacity: 0.7;
+}
+body.dark-mode .feedback-confirmation {
+    color: #66bb6a; /* Lighter green */
+}
