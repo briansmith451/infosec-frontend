@@ -1,7 +1,7 @@
 // Global variable to hold server results for client-side filtering
 let currentLibraryResults = [];
 // Global variable to hold analysis results for modal
-let currentAnalysisResults = [];
+let currentAnalysisResults = []; 
 // Global setting for analysis quality
 let analysisQuality = 'accurate'; // 'accurate' (Opus) or 'fast' (Haiku)
 
