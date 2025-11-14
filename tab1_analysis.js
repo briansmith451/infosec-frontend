@@ -1,6 +1,77 @@
 // tab1_analysis.js
 // Contains all logic for the Tab 1: Classification Analysis
 
+// --- ADDED: Missing function to show sentence details modal ---
+window.showSentenceDetails = function (index) {
+    const result = window.currentAnalysisResults[index];
+    if (!result) {
+        console.error("Could not find analysis result for index:", index);
+        return;
+    }
+
+    const modal = document.getElementById('scg-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+
+    // 1. Set Modal Title
+    modalTitle.textContent = `Analysis for Sentence ${index + 1}`;
+
+    // 2. Build Modal Body Content
+    let bodyHtml = `
+        <p style="font-size: 16px; margin-bottom: 20px; line-height: 1.6; background: #f9f9f9; padding: 12px; border-radius: 4px; border: 1px solid #eee;">
+            <strong>Sentence:</strong> "${result.sentence}"
+        </p>
+        
+        <h4 style="margin: 20px 0 10px 0; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Full Determination</h4>
+        <pre style="white-space: pre-wrap; font-family: monospace; line-height: 1.6; color: #333;">${result.determination}</pre>
+    `;
+
+    // 3. Add Retrieved Rules (if they exist)
+    if (result.retrieved_rules && result.retrieved_rules.length > 0) {
+        bodyHtml += `
+            <h4 style="margin: 20px 0 10px 0; border-bottom: 1px solid #ccc; padding-bottom: 5px;">
+                Citations (${result.retrieved_rules.length} rules found)
+            </h4>
+        `;
+        
+        result.retrieved_rules.forEach(rule => {
+            // Check for personal or official source
+            const isPersonal = rule.source === 'personal_library';
+            const sourceBadge = isPersonal
+                ? `<span class="rule-source-badge personal">Personal Library</span>`
+                : `<span class="rule-source-badge official">Official SCG</span>`;
+            
+            bodyHtml += `
+                <div class_b="rule-citation" style="margin-bottom: 16px; border: 1px solid #ddd; border-radius: 6px; overflow: hidden;">
+                    <div class="rule-header" style="background: #f9f9f9; padding: 10px 12px; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center;">
+                        <strong style="color: #1a237e;">${rule.topic}</strong>
+                        ${sourceBadge}
+                    </div>
+                    <div class="rule-body" style="padding: 12px;">
+                        <p style="margin: 0 0 8px 0;"><strong>Classification:</strong> ${rule.classification}</p>
+                        <p style="margin: 0; font-family: monospace; line-height: 1.5;">${rule.clean_rule}</p>
+                        <p style="margin: 8px 0 0 0; font-size: 12px; color: #777;"><strong>Source:</strong> ${isPersonal ? rule.document : rule.scg_title}</p>
+                    </div>
+                </div>
+            `;
+        });
+    } else {
+        bodyHtml += `
+            <h4 style="margin: 20px 0 10px 0; border-bottom: 1px solid #ccc; padding-bottom: 5px;">
+                Citations
+            </h4>
+            <p style="font-style: italic; color: #777;">No specific rules were cited for this determination.</p>
+        `;
+    }
+
+    modalBody.innerHTML = bodyHtml;
+
+    // 4. Show the modal
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+};
+
 // --- Global function to toggle individual element text ---
 window.toggleElementText = function (index) {
     const result = window.currentAnalysisResults[index];
